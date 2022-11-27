@@ -96,3 +96,23 @@ Here’s what you did:
 
 7. Add the instantiated view to the current view.
 
+Open ContactListTableViewController.swift (in the Controllers group) and add this code immediately after the cellIdentififer declaration:
+```swift
+@IBOutlet var contactPreviewView: ContactPreviewView!
+```
+
+Open Contacts.storyboard. Press Command-Shift-L and look for uiview.
+![image](https://user-images.githubusercontent.com/47273077/204123272-e976c7f4-a04d-40ee-99a6-ea632fd3ea64.png)
+
+Drag the view object below the Exit item in the document outline.
+![image](https://user-images.githubusercontent.com/47273077/204123281-da35ee74-fbbb-44fd-8a40-259ecb32827b.png)
+
+Select the view. In the Identity inspector, select ContactPreviewView for the class attribute.
+
+Control-drag from ContactListTableViewController to the ContactPreviewView. An outlets popup will appear; select contactPreviewView.
+![image](https://user-images.githubusercontent.com/47273077/204123291-42edf3c5-402d-4a44-94e6-7169b8a2b80c.png)
+
+
+
+
+
