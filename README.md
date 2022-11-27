@@ -167,3 +167,10 @@ override func tableView(_ tableView: UITableView,
 * No visualization of the workflow of your app. That’s something you can only have with storyboards.
 
 * If the view is dynamic, it can be difficult to create using .xibs.
+
+## When not to use stack views
+Imagine you have a stack view with a left view and a right view. The stack view has a fixed height, and its subviews have equal width. When you animate the right view’s isHidden property from false to true, the stack view animates your views a certain way. The left view will take up the space of the right view as the left view expands, and the right view shrinks. If the animation behavior is not what you want, then you may find manual constraints to be a more suitable solution for the UI you want to achieve.
+
+In addition to the stack view’s behavior expectations, you may be working on a legacy codebase. The legacy codebase may have a pre-iOS 9.0 deployment target. This means that if you use stack views, you would need to support both pre-iOS 9.0 and iOS 9.0 and newer. This is a maintenance consideration that may affect crucial business decisions. This is another example of when stack views can be a less viable solution in comparison to creating additional constraints.
+
+
