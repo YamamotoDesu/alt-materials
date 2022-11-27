@@ -209,3 +209,29 @@ window?.rootViewController = viewController
 window?.makeKeyAndVisible()
 return true
 ```
+
+Build and run, and you’ll see a tab bar controller with a black background.
+![image](https://user-images.githubusercontent.com/47273077/204135424-542cf9ca-e3c7-4a29-b070-ce5b3a3da2cd.png)
+When you add a view controller onto a storyboard, the background view is set to white by default. 
+In code, the view controller’s view has a nil background color, which shows up as black. 
+
+## Building out a view controller’s user interface in code
+```swift
+import UIKit
+
+final class ProfileHeaderView: UIView {
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = .groupTableViewBackground
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+}
+```
+With the code above, you override init(frame:). The method you’ve overridden is an initializer method. As the method name implies, this is where you add your initialization code, such as setting the view’s background color.
+
+Afterward, init(coder:) takes care of the object’s archiving and unarchiving processes for Interface Builder. This method is handy when you launch an object from storyboard/.xib and want to configure the object at the initialization phase. Generally, when a view is created in code, init(frame:) is the initializer used, and when a view is created from a storyboard or .xib, init(coder:) is used instead.
+
+
