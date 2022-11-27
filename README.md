@@ -234,4 +234,60 @@ With the code above, you override init(frame:). The method you’ve overridden i
 
 Afterward, init(coder:) takes care of the object’s archiving and unarchiving processes for Interface Builder. This method is handy when you launch an object from storyboard/.xib and want to configure the object at the initialization phase. Generally, when a view is created in code, init(frame:) is the initializer used, and when a view is created from a storyboard or .xib, init(coder:) is used instead.
 
+# Refactoring stack views
+```swift
+private func setupStackView() {
+  // 1
+  addSubview(stackView)
+  stackView.translatesAutoresizingMaskIntoConstraints = false
+  
+  // 2
+  NSLayoutConstraint.activate(
+    [stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+     stackView.leadingAnchor.constraint(
+      greaterThanOrEqualTo: leadingAnchor, constant: 20),
+     stackView.leadingAnchor.constraint(
+      lessThanOrEqualTo: leadingAnchor, constant: 500),
+     stackView.bottomAnchor.constraint(
+      equalTo: bottomAnchor, constant: -8),
+     stackView.topAnchor.constraint(
+      equalTo: topAnchor, constant: 26),
+     
+     profileImageView.widthAnchor.constraint(
+      equalToConstant: 120),
+     profileImageView.widthAnchor.constraint(
+      equalTo: profileImageView.heightAnchor),
+     
+     leftSpacerView.widthAnchor.constraint(
+      equalTo: rightSpacerView.widthAnchor)
+    ])
+  
+  // 3
+  profileImageView.setContentHuggingPriority(
+    UILayoutPriority(251), 
+    for: NSLayoutConstraint.Axis.horizontal)
+  profileImageView.setContentHuggingPriority(
+    UILayoutPriority(251),
+    for: NSLayoutConstraint.Axis.vertical)
+  
+  fullNameLabel.setContentHuggingPriority(
+    UILayoutPriority(251),
+    for: NSLayoutConstraint.Axis.horizontal)
+  fullNameLabel.setContentHuggingPriority(
+    UILayoutPriority(251),
+    for: NSLayoutConstraint.Axis.vertical)
+  fullNameLabel.setContentCompressionResistancePriority(
+    UILayoutPriority(751),
+    for: NSLayoutConstraint.Axis.vertical)
+  
+  messageButton.setContentCompressionResistancePriority(
+    UILayoutPriority(751),
+    for: NSLayoutConstraint.Axis.horizontal)
+}
+
+```
+
+3. Set the content hugging priority and compression resistance priority on profileImageView, fullNameLabel and messageButton to match the layout behavior from the Interface Builder implementation.
+
+![image](https://user-images.githubusercontent.com/47273077/204136889-f736d75f-a01b-470e-88ea-3665867e3958.png)
 
