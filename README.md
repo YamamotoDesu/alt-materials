@@ -35,3 +35,18 @@ Each edition has its own branch, named `editions/[EDITION]`. The default branch 
 * Using Interface builder increases compile time compared to code implementation. As complexity increases in your storyboard files, compile-time can take up a chunk of development time. Consider the compounding effect of development time.
 
 
+## Using Xibs
+
+Under the User Interface section, select View and click Next.
+![image](https://user-images.githubusercontent.com/47273077/204123154-fb315146-8f80-4cf5-a930-52c041b98930.png)
+
+
+Select the View and go to the Attributes inspector. On the simulated metrics section, select Freeform for the size attribute.
+
+![image](https://user-images.githubusercontent.com/47273077/204123169-71547e40-993b-4ef9-bd2d-f2ee66c5f121.png)
+
+Now, go to the Size inspector, and set the width and height equal to 150.
+![image](https://user-images.githubusercontent.com/47273077/204123176-41081107-f604-48fe-8654-275fcefc26dd.png)
+
+
+
