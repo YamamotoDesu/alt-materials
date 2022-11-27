@@ -48,5 +48,51 @@ Select the View and go to the Attributes inspector. On the simulated metrics sec
 Now, go to the Size inspector, and set the width and height equal to 150.
 ![image](https://user-images.githubusercontent.com/47273077/204123176-41081107-f604-48fe-8654-275fcefc26dd.png)
 
+In the same group, add another new file. Select Cocoa Touch Class with UIView subclass and name it ContactPreviewView.
 
+Open ContactPreviewView.xib. Select File’s Owner in the document outline, and go to the Identity inspector. Select ContactPreviewView for the class attribute.
+
+Add the following code, starting at the beginning, inside the ContactPreviewView class in the ContactPreviewView.swift file:
+
+ ```swift
+ // 1
+override init(frame: CGRect) {
+  super.init(frame: frame)
+  loadView()
+}
+// 2
+required init?(coder aDecoder: NSCoder) {
+  super.init(coder: aDecoder)
+  loadView()
+}
+
+func loadView() {
+  // 3
+  let bundle = Bundle(for: ContactPreviewView.self)
+  // 4
+  let nib =
+    UINib(nibName: "ContactPreviewView", bundle: bundle)
+  // 5
+  let view = nib.instantiate(withOwner: self).first as! UIView
+  // 6
+  view.frame = bounds
+  // 7
+  addSubview(view)
+}
+```
+Here’s what you did:
+
+1. Override the init(frame:) constructor so that you can call loadView().
+
+2. Override the required init(coder:) constructor so that you can call loadView(). Since it’s a required constructor, not implementing it will cause an error.
+
+3. Get a reference to the bundle that contains the ContactPreviewView .xib file.
+
+4. Create an instance of the ContactPreviewView .xib, indicating its containing bundle.
+
+5. Instantiate the view and assign the owner, which is the current class.
+
+6. Set view.frame equal to bounds. This gives view the same dimensions as its parent.
+
+7. Add the instantiated view to the current view.
 
