@@ -152,4 +152,18 @@ override func tableView(_ tableView: UITableView,
 <img width="565" alt="スクリーンショット 2022-11-27 16 04 43" src="https://user-images.githubusercontent.com/47273077/204123497-0768ca28-d160-492d-bdc5-c66824b31e3a.gif">
 
 
+## Pros
+* Since .xibs have less UI described in one file, it can be easier to manage or avoid conflicts, compared to storyboards.
 
+* It’s easy to reuse a .xib file throughout a project, to avoid creating duplicated interfaces, or even use them in other projects.
+
+* It can help to have part of the system more encapsulated.
+
+* It shines when you need to create custom controls. If you’re going to use Interface Builder to create custom controls, .xib files are the way to go.
+
+## Cons
+* You can’t have relationships between screens, something that’s simple and useful while using storyboards.
+
+* No visualization of the workflow of your app. That’s something you can only have with storyboards.
+
+* If the view is dynamic, it can be difficult to create using .xibs.
