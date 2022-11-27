@@ -197,5 +197,5 @@ return true
 
 4. Set the window’s root view controller to the storyboard’s initial view controller.
 
-5. By calling makeKeyAndVisible() on your window, window is shown and positioned in front of every window in your app. For the most part, you’ll only need to work with one window. There are instances where you’d want to create new windows to display your app’s content. For example, you’ll work with multiple windows when you want to support an external display in your app. Chapter 17, “Auto Layout for External Displays”, covers supporting external displays.
+5. By calling makeKeyAndVisible() on your window, window is shown and positioned in front of every window in your app. For the most part, you’ll only need to work with one window. There are instances where you’d want to create new windows to display your app’s content. For example, you’ll work with multiple windows when you want to support an external display in your app.
 
