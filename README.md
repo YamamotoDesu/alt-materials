@@ -112,7 +112,44 @@ Select the view. In the Identity inspector, select ContactPreviewView for the cl
 Control-drag from ContactListTableViewController to the ContactPreviewView. An outlets popup will appear; select contactPreviewView.
 ![image](https://user-images.githubusercontent.com/47273077/204123291-42edf3c5-402d-4a44-94e6-7169b8a2b80c.png)
 
+Go to ContactListTableViewController.swift and type the following code at the end of the class:
+```swift
+// MARK: - Setup Contact Preview
+override func tableView(_ tableView: UITableView, 
+    accessoryButtonTappedForRowWith indexPath: IndexPath) {
+  // 1
+  let contact = contacts[indexPath.row]
+  // 2
+  view.addSubview(contactPreviewView)
+  // 3
+  contactPreviewView
+    .translatesAutoresizingMaskIntoConstraints = false
+  // 4
+  NSLayoutConstraint.activate([
+    contactPreviewView.widthAnchor.constraint(
+      equalToConstant: 150),
+    contactPreviewView.heightAnchor.constraint(
+      equalToConstant: 150),
+    contactPreviewView.centerXAnchor.constraint(
+      equalTo: view.centerXAnchor),
+    contactPreviewView.centerYAnchor.constraint(
+      equalTo: view.centerYAnchor)
+  ])
+  // 5
+  contactPreviewView.transform =
+    CGAffineTransform(scaleX: 1.25, y: 1.25)
+  contactPreviewView.alpha = 0
+  // 6
+  UIView.animate(withDuration: 0.3) { [weak self] in
+    guard let self = self else { return }
+    self.contactPreviewView.alpha = 1
+    self.contactPreviewView.transform =
+      CGAffineTransform.identity
+  }
+}
 
+```
+<img width="565" alt="スクリーンショット 2022-11-27 16 04 43" src="https://user-images.githubusercontent.com/47273077/204123497-0768ca28-d160-492d-bdc5-c66824b31e3a.gif">
 
 
 
