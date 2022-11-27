@@ -173,4 +173,29 @@ Imagine you have a stack view with a left view and a right view. The stack view 
 
 In addition to the stack view’s behavior expectations, you may be working on a legacy codebase. The legacy codebase may have a pre-iOS 9.0 deployment target. This means that if you use stack views, you would need to support both pre-iOS 9.0 and iOS 9.0 and newer. This is a maintenance consideration that may affect crucial business decisions. This is another example of when stack views can be a less viable solution in comparison to creating additional constraints.
 
+## Launching a view controller from the storyboard in code
+Open AppDelegate.swift and replace the code inside application(_:didFinishLaunchingWithOptions:) with the following:
+```swift
+// 1
+let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+// 2
+let viewController =
+  storyboard.instantiateInitialViewController()
+// 3
+window = UIWindow(frame: UIScreen.main.bounds)
+// 4
+window?.rootViewController = viewController
+// 5
+window?.makeKeyAndVisible()
+return true
+```
+1. Initialize the storyboard in code using the storyboard name.
+
+2. Create a reference to the storyboard’s initial view controller.
+
+3. Set the app delegate’s window using the device’s screen size as the frame.
+
+4. Set the window’s root view controller to the storyboard’s initial view controller.
+
+5. By calling makeKeyAndVisible() on your window, window is shown and positioned in front of every window in your app. For the most part, you’ll only need to work with one window. There are instances where you’d want to create new windows to display your app’s content. For example, you’ll work with multiple windows when you want to support an external display in your app. Chapter 17, “Auto Layout for External Displays”, covers supporting external displays.
 
