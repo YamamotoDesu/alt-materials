@@ -10,7 +10,7 @@ Each edition has its own branch, named `editions/[EDITION]`. The default branch 
 | -------------------------------------------------------------------------------- |:-------:|:------------:|
 | [editions/1.0](https://github.com/raywenderlich/alt-materials/tree/editions/1.0) | 1.0     | 2020-05-15   |
 
-## Here are five pros of using storyboard:
+# Here are five pros of using storyboard:
 * As the name implies, storyboards become a flow diagram. A storyboard makes visualization of the app’s flow vivid and obvious. You can tell by looking at a storyboard that the first view controller transitions to the second view controller with the segue indicator arrow. You can see the UI elements inside of a view controller. Also, available to you with a storyboard is the real-time update of how UI objects appear after constraint updates. These are three examples of the many visual benefits from storyboards.
 
 * Almost every iOS developer learns to construct layouts in storyboards at some point today. Under the circumstance where the storyboard complexity is low, on-boarding a developer into your project is easier in the sense that more developers are well-versed with storyboards than other methods of layout construction. Plus, most developers start out learning to construct Auto Layout constraints using storyboards.
@@ -22,7 +22,7 @@ Each edition has its own branch, named `editions/[EDITION]`. The default branch 
 * Layout changes to your UI objects are reflected in the storyboard. This omits the need to build and run your app to see how your UI objects have changed. Consequently, this saves time.
 
 
-## Here are five cons of using storyboard:
+# Here are five cons of using storyboard:
 
 * The infamous merge conflicts resolution problem. Merge conflicts are easy to come by when two or more developers make changes onto a single storyboard. Because storyboard files are stored as XML, the files are not exactly the most reader-friendly. When there are multiple changes from different developers using the same storyboard file, you may find yourself spending some time resolving merge conflicts. This effect can compound over time. Apple has taken measures to make merge conflicts less of a problem with more readable XML files and by making it easier to split up large storyboard files. However, the storyboard merge conflict problem persists.
 
@@ -35,7 +35,7 @@ Each edition has its own branch, named `editions/[EDITION]`. The default branch 
 * Using Interface builder increases compile time compared to code implementation. As complexity increases in your storyboard files, compile-time can take up a chunk of development time. Consider the compounding effect of development time.
 
 
-## Using Xibs
+# Using Xibs
 
 Under the User Interface section, select View and click Next.
 ![image](https://user-images.githubusercontent.com/47273077/204123154-fb315146-8f80-4cf5-a930-52c041b98930.png)
@@ -168,12 +168,12 @@ override func tableView(_ tableView: UITableView,
 
 * If the view is dynamic, it can be difficult to create using .xibs.
 
-## When not to use stack views
+# When not to use stack views
 Imagine you have a stack view with a left view and a right view. The stack view has a fixed height, and its subviews have equal width. When you animate the right view’s isHidden property from false to true, the stack view animates your views a certain way. The left view will take up the space of the right view as the left view expands, and the right view shrinks. If the animation behavior is not what you want, then you may find manual constraints to be a more suitable solution for the UI you want to achieve.
 
 In addition to the stack view’s behavior expectations, you may be working on a legacy codebase. The legacy codebase may have a pre-iOS 9.0 deployment target. This means that if you use stack views, you would need to support both pre-iOS 9.0 and iOS 9.0 and newer. This is a maintenance consideration that may affect crucial business decisions. This is another example of when stack views can be a less viable solution in comparison to creating additional constraints.
 
-## Launching a view controller from the storyboard in code
+# Launching a view controller from the storyboard in code
 Open AppDelegate.swift and replace the code inside application(_:didFinishLaunchingWithOptions:) with the following:
 ```swift
 // 1
