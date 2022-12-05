@@ -291,3 +291,27 @@ private func setupStackView() {
 
 ![image](https://user-images.githubusercontent.com/47273077/204136889-f736d75f-a01b-470e-88ea-3665867e3958.png)
 
+-----
+### Here are five benefits of using code to construct Auto Layout constraints:
+
+* Everything technical that storyboard can do, code can do too. But, not vice versa.
+
+* Readable merge conflict(s) means less time spent fixing merge conflicts.
+
+* Code compilation time reduction.
+
+* All the user interface logic lives in code. This benefit mitigates events such as having to find whether a property is changed in Interface Builder or code.
+
+* Easy UI maintenance with the right coding infrastructure. Manage UI constants such as fonts, colors and constraint values with ease.
+
+### Here are five drawbacks of using code:
+
+* Higher learning curve compared to using Interface Builder.
+
+* Naming conventions and code cleanliness are vital for code maintenance when working on a team.
+
+* Inability to add user interface objects and create constraints for the user interface objects visually like in Interface Builder.
+
+* More developers are familiar with using Interface Builder than developers who are familiar with using code to build an app’s layout. If you work with developers who are less familiar with using code, more time may be needed to properly onboard the developers.
+
+* Opportunity cost of missing out some of the automation Interface Builder provides when you build your layouts in Interface Builder.
