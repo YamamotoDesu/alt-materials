@@ -315,3 +315,18 @@ private func setupStackView() {
 * More developers are familiar with using Interface Builder than developers who are familiar with using code to build an app’s layout. If you work with developers who are less familiar with using code, more time may be needed to properly onboard the developers.
 
 * Opportunity cost of missing out some of the automation Interface Builder provides when you build your layouts in Interface Builder.
+
+
+## Useful to use safeAreaLayoutGuide
+```swift
+    let contentLayoutGuide = view.safeAreaLayoutGuide
+    
+    NSLayoutConstraint.activate([
+      mainStackView.leadingAnchor.constraint(equalTo:
+        contentLayoutGuide.leadingAnchor),
+      mainStackView.trailingAnchor.constraint(equalTo:
+        contentLayoutGuide.trailingAnchor),
+      mainStackView.topAnchor.constraint(equalTo:
+        contentLayoutGuide.topAnchor),
+    ])
+````
