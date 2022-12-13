@@ -330,3 +330,61 @@ private func setupStackView() {
         contentLayoutGuide.topAnchor),
     ])
 ````
+
+## Setting up the scroll view
+
+```swift
+
+  private func setupMainStackView() {
+    mainStackView.axis = .vertical
+    mainStackView.distribution = .equalSpacing
+    mainStackView.translatesAutoresizingMaskIntoConstraints
+      = false
+    
+    //1
+    scrollView.addSubview(mainStackView)
+    
+    //2
+    let contentLayoutGuide = scrollView.contentLayoutGuide
+    
+    NSLayoutConstraint.activate([
+      //3
+      mainStackView.widthAnchor.constraint(equalTo:
+        view.widthAnchor),
+      mainStackView.leadingAnchor.constraint(equalTo:
+        contentLayoutGuide.leadingAnchor),
+      mainStackView.trailingAnchor.constraint(equalTo:
+        contentLayoutGuide.trailingAnchor),
+      mainStackView.topAnchor.constraint(equalTo:
+        contentLayoutGuide.topAnchor),
+      //4
+      mainStackView.bottomAnchor.constraint(equalTo:
+        contentLayoutGuide.bottomAnchor)
+    ])
+    
+    //5
+    setupProfileHeaderView()
+    setupButtons()
+  }
+  
+  private func setupScrollView() {
+    //1
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(scrollView)
+
+    let frameLayoutGuide = scrollView.frameLayoutGuide
+      
+    //2
+    NSLayoutConstraint.activate([
+      frameLayoutGuide.leadingAnchor.constraint(equalTo:
+        view.leadingAnchor),
+      frameLayoutGuide.trailingAnchor.constraint(equalTo:
+        view.trailingAnchor),
+     frameLayoutGuide.topAnchor.constraint(equalTo:
+        view.safeAreaLayoutGuide.topAnchor),
+      frameLayoutGuide.bottomAnchor.constraint(equalTo:
+        view.safeAreaLayoutGuide.bottomAnchor)
+    ])
+  }
+
+```
