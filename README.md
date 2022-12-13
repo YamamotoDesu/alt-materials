@@ -335,6 +335,20 @@ private func setupStackView() {
 
 ```swift
 
+  private let profileHeaderView = ProfileHeaderView()
+  private let mainStackView = UIStackView()
+  private let scrollView = UIScrollView()
+  
+  // MARK: - Life Cycles
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+    
+//    setupProfileHeaderView()
+    setupScrollView()
+    setupMainStackView()
+  }
+
   private func setupMainStackView() {
     mainStackView.axis = .vertical
     mainStackView.distribution = .equalSpacing
